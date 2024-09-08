@@ -9,7 +9,7 @@ public class MessageServiceImpl implements MessageService {
     private final List<Message> messages = new ArrayList<>();
 
     @Override
-    public void postMessage(String user, Message message) {
+    public void postMessage( Message message) {
         this.messages.add(message);
     }
 

@@ -29,9 +29,9 @@ public class SpringMessageService implements MessageService {
     }
 
     @Override
-    public void postMessage(String user, Message message) {
-        logger.info("Posting message for user: {}", user);
-        this.messageService.postMessage(user, message);
-        logger.info("Message posted for user: {}", user);
+    public void postMessage(Message message) {
+        logger.info("Posting message for user: {}", message.getName());
+        this.messageService.postMessage( message);
+        logger.info("Message posted for user: {}", message.getName());
     }
 }

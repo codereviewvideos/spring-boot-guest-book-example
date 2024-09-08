@@ -15,18 +15,18 @@ import uk.co.a6software.guest_book.infrastructure.dto.MessageRequest;
 import java.util.List;
 
 @Controller
-public class MessageController {
+public class MessageRestController {
     private final MessageService messageService;
 
     @Autowired
-    public MessageController(@Qualifier("springMessageService") MessageService messageService) {
+    public MessageRestController(@Qualifier("springMessageService") MessageService messageService) {
         this.messageService = messageService;
     }
 
     @PostMapping("/post")
     public ResponseEntity<String> postMessage(@RequestBody MessageRequest messageRequest) {
-        MessageImpl message = new MessageImpl(messageRequest.message());
-        messageService.postMessage(messageRequest.user(), message);
+        MessageImpl message = new MessageImpl(messageRequest.user(), messageRequest.message());
+        messageService.postMessage( message);
 
         return ResponseEntity.ok(message.getMessage());
     }
